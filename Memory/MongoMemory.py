@@ -3,8 +3,8 @@ class MongoMemory:
     def __init__(self, collection):
         self.collection = collection
 
-    def save_message(self, user_input, bot_response):
-        self.collection.insert_one({"user": user_input, "bot": bot_response})
+    def save_message(self, user_input, bot_response,subject):
+        self.collection.insert_one({"user": user_input, "bot": bot_response,"subject":subject})
 
     def load_messages(self):
         messages = self.collection.find({}, {"_id": 0})
